@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <title>Inicio</title>
+</head>
+
+<body>
+
+  <div class="container container-fluid p-5">
+    <form action="/addQuestion" method="post">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Ingresa tu nombre">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu email">
+      </div>
+      <div class="form-group">
+        <label for="question">Preguntas</label>
+        <textarea type="text" class="form-control" id="question" name="question"
+          placeholder="Ingresa tus preguntas"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+    </form>
+  </div>
+
+</body>
+
+</html>

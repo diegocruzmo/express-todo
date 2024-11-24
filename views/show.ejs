@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <title>Preguntas</title>
+</head>
+
+<body>
+  <h1>Preguntas</h1>
+  <% if (data.length> 0) { %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Email</th>
+          <th scope="col">Preguntas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i=0; i < data.length; i++) { %>
+          <tr>
+            <th scope="row">
+              <%= data[i].id %>
+            </th>
+            <td>
+              <%= data[i].name %>
+            </td>
+            <td>
+              <%= data[i].email %>
+            </td>
+            <td>
+              <%= data[i].question %>
+            </td>
+            <td>
+              <a href="/edit/<%= data[i].id%>"><button class="btn btn-info">Editar</button></a>
+              <button class="btn btn-danger" onclick="deleteQuestion(<%= data[i].id %>)">Eliminar</button>
+            </td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+    <% } %>
+
+      <script>
+        async function deleteQuestion(id) {
+          try {
+            const response = await fetch(`/delete/${id}`, {
+              method: 'DELETE'
+            });
+            if (response.status === 204) {
+              alert('Question deleted successfully');
+              location.reload();
+            } else {
+              alert('Failed to delete question');
+            }
+          } catch (error) {
+            console.error('Error:', error);
+            alert('Error deleting question');
+          }
+        }
+      </script>
+
+</body>
+
+</html>

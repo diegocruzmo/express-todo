@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <title>Edit</title>
+</head>
+
+<body>
+
+  <div class="container container-fluid p-5">
+    <form action="/edit/<%= data[0].id %>" method="post">
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Ingresa tu nombre"
+          value="<%= data[0].name %>">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu email"
+          value="<%= data[0].email %>">
+      </div>
+      <div class="form-group">
+        <label for="question">Preguntas</label>
+        <textarea class="form-control" id="question" name="question"
+          placeholder="Ingresa tus preguntas"><%= data[0].question %></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Actualizar</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
